@@ -110,43 +110,27 @@ telecom-triage-agent/
 ### 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/telecom-triage-agent.git
+git clone https://github.com/sanidhyayadav01/telecom-triage-agent.git
 cd telecom-triage-agent
 ```
 
 ---
 
-### 2️⃣ Create Virtual Environment
+### 2️⃣ Install Dependencies
 
-```bash
-python -m venv venv
-```
-
-Activate:
-
-**Windows**
-```bash
-venv\Scripts\activate
-```
-
-**Mac/Linux**
-```bash
-source venv/bin/activate
-```
-
----
-
-### 3️⃣ Install Dependencies
+Make sure Python 3.11 or later is installed.
 
 ```bash
 pip install -r requirements.txt
 ```
 
+*(Optional: You may use a virtual environment if preferred, but it is not required.)*
+
 ---
 
-### 4️⃣ Configure Environment Variables
+### 3️⃣ Configure Environment Variables
 
-Create a `.env` file:
+Create a `.env` file in the project root:
 
 ```env
 GROQ_API_KEY=your_api_key_here
@@ -156,7 +140,7 @@ GROQ_API_KEY=your_api_key_here
 
 ---
 
-### 5️⃣ Run the Agent
+### 4️⃣ Run the Agent
 
 ```bash
 python app.py
@@ -230,6 +214,8 @@ QA & Software Engineering Student
 ## 🤝 Acknowledgements
 
 This project was developed with implementation guidance and technical assistance from AI tools (ChatGPT) for learning, architecture design, and debugging support.
+
+---
 
 ## 📜 License
 
