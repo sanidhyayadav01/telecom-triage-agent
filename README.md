@@ -72,22 +72,22 @@ Customer Message Input
         │
         ▼
 ┌────────────────────────┐
-│  Classification Chain   │
-│  (Urgency + Intent)     │
+│  Classification Chain  │
+│  (Urgency + Intent)    │
 └────────────┬───────────┘
              ▼
 ┌────────────────────────┐
-│  Entity Extraction      │
-│  (NER Processing)       │
+│  Entity Extraction     │
+│  (NER Processing)      │
 └────────────┬───────────┘
              ▼
 ┌────────────────────────┐
-│ Response Generator LLM  │
-│ (Draft Reply Creation)  │
+│ Response Generator LLM │
+│ (Draft Reply Creation) │
 └────────────┬───────────┘
              ▼
 ┌────────────────────────┐
-│ Escalation Routing      │
+│ Escalation Routing     │
 └────────────────────────┘
              ▼
       UI Response Display
