@@ -1,88 +1,121 @@
 # 📡 Telecom Support Triage Agent (AAI-39)
 
-A production-style **AI-powered Telecom Support Triage Agent** built using Python, LangChain, and a Large Language Model (LLM) API.  
-The system automates initial telecom customer support workflows by classifying incoming messages, extracting important entities, and generating contextual draft responses.
+An **AI-powered End-to-End Telecom Support Triage System** that automatically analyzes customer complaints, extracts key information, and generates intelligent draft responses using Large Language Models (LLMs).
+
+Built with **Python, LangChain, Groq LLM API, and a complete UI layer**, this project simulates a production-style telecom support automation workflow.
 
 ---
 
 ## 🚀 Project Overview
 
-Telecommunication companies receive thousands of customer support messages daily.  
-Manual triaging slows down response time and increases operational workload.
+Telecommunication companies handle thousands of customer support requests daily. Manual triaging causes:
 
-This project implements an **AI-driven reactive triage agent** that:
+* Slow response times
+* Increased operational workload
+* Human routing errors
+* Poor customer experience
 
-- Classifies customer messages by **urgency** and **intent**
-- Extracts critical information using **Named Entity Recognition (NER)**
-- Automatically generates professional **draft responses**
-- Routes issues to appropriate internal support teams
+This project introduces an **AI-driven reactive triage agent** that automates the first layer of telecom customer support.
 
-The agent runs directly in the **terminal** and communicates with an LLM API without requiring a browser interface.
+The system now includes:
+
+✅ Backend AI triage engine
+✅ Entity extraction pipeline
+✅ Automated response generation
+✅ Intelligent routing logic
+✅ End-to-End User Interface (UI)
 
 ---
 
 ## 🎯 Problem Statement
 
-**Division:** D8  
-**Group:** 04D8  
-**Project No:** AAI-39  
+**Division:** D8
+**Group:** 04D8
+**Project No:** AAI-39
 
-Create a production-grade reactive triage agent for telecom communications that:
+Design a production-grade telecom triage agent capable of:
 
-- Performs real-time classification of incoming messages
-- Extracts structured entities such as IDs and dates
-- Generates context-aware draft replies
-- Accelerates customer issue resolution workflows
+* Real-time intent and urgency classification
+* Structured entity extraction
+* Context-aware response drafting
+* Automated issue routing
+* Interactive user interface for support workflows
 
 ---
 
 ## 🧠 Key Features
 
-✅ Real-time message classification (Urgency + Intent)  
-✅ Named Entity Recognition (Customer ID, Phone Number, Ticket ID, Date)  
-✅ Automated draft response generation  
-✅ Intelligent escalation routing  
-✅ Structured JSON output parsing  
-✅ Terminal-based interaction (no browser required)  
-✅ Modular and production-like architecture  
+✅ Message Classification (Urgency + Intent)
+✅ Named Entity Recognition (NER)
+
+* Customer Name
+* Phone Number
+* Ticket ID
+* Dates
+
+✅ AI-generated professional telecom responses
+✅ Smart escalation routing
+✅ Structured JSON output validation
+✅ Modular LangChain pipeline
+✅ Environment-secured API usage
+✅ End-to-End UI integration
 
 ---
 
-## 🏗️ System Architecture
+## 🖥️ System Architecture
 
 ```
-Customer Message
+User Interface (UI)
         │
         ▼
-┌────────────────────┐
-│  Classification LLM │
-│ (Urgency + Intent)  │
-└─────────┬──────────┘
-          ▼
-┌────────────────────┐
-│   NER Extraction    │
-│  (Entity Parsing)   │
-└─────────┬──────────┘
-          ▼
-┌────────────────────┐
-│ Response Generator  │
-│   (Draft Reply)     │
-└─────────┬──────────┘
-          ▼
-┌────────────────────┐
-│ Escalation Routing  │
-└────────────────────┘
+Customer Message Input
+        │
+        ▼
+┌────────────────────────┐
+│  Classification Chain   │
+│  (Urgency + Intent)     │
+└────────────┬───────────┘
+             ▼
+┌────────────────────────┐
+│  Entity Extraction      │
+│  (NER Processing)       │
+└────────────┬───────────┘
+             ▼
+┌────────────────────────┐
+│ Response Generator LLM  │
+│ (Draft Reply Creation)  │
+└────────────┬───────────┘
+             ▼
+┌────────────────────────┐
+│ Escalation Routing      │
+└────────────────────────┘
+             ▼
+      UI Response Display
 ```
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Python 3.11+**
-- **LangChain**
-- **Groq LLM API (Llama 3.1 models)**
-- dotenv (environment management)
-- Regex-based structured parsing
+### Backend
+
+* Python 3.11+
+* LangChain
+* Groq LLM API (Llama 3.1)
+* dotenv
+* Regex-based structured parsing
+
+### Frontend / UI
+
+* Interactive UI layer (chat-style telecom support interface)
+* API-driven backend communication
+
+### AI Components
+
+* Prompt Engineering
+* LLM Classification
+* Named Entity Recognition
+* Contextual Response Generation
 
 ---
 
@@ -91,13 +124,15 @@ Customer Message
 ```
 telecom-triage-agent/
 │
-├── agents/            # Main triage agent logic
-├── chains/            # LangChain workflows
-├── prompts/           # LLM prompt templates
-├── utils/             # Parser, formatter, routing logic
+├── agents/              # Core triage agent logic
+├── chains/              # LangChain pipelines
+├── prompts/             # Prompt templates
+├── utils/               # Parsing & routing helpers
 │
-├── app.py             # Terminal entry point
-├── config.py          # LLM configuration
+├── ui/                  # Frontend / UI components
+│
+├── app.py               # Backend entry point
+├── config.py            # LLM configuration
 ├── requirements.txt
 ├── .env.example
 └── README.md
@@ -118,105 +153,139 @@ cd telecom-triage-agent
 
 ### 2️⃣ Install Dependencies
 
-Make sure Python 3.11 or later is installed.
+Ensure Python 3.11+ is installed.
 
 ```bash
 pip install -r requirements.txt
 ```
 
-*(Optional: You may use a virtual environment if preferred, but it is not required.)*
+(Optional but recommended)
+
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
 
 ---
 
 ### 3️⃣ Configure Environment Variables
 
-Create a `.env` file in the project root:
+Create `.env` in the root directory:
 
 ```env
 GROQ_API_KEY=your_api_key_here
 ```
 
-⚠️ Never upload `.env` to GitHub.
+⚠️ Never commit `.env` to GitHub.
 
 ---
 
-### 4️⃣ Run the Agent
+### 4️⃣ Run the Application
+
+Start backend:
 
 ```bash
 python app.py
 ```
 
+Start UI:
+
+```bash
+streamlit run ui/app_ui.py
+```
+
 ---
 
-## 💻 Example Usage
+## 💻 Example Workflow
+
+**User Input (UI):**
 
 ```
-Customer Message > my internet is not working since morning
+My internet has not been working since morning.
+Ticket #1234
 ```
 
-Output:
+**System Processing:**
 
 ```
-Urgency: high
-Intent: network_issue
+Urgency: High
+Intent: Network Issue
+```
 
-Routed To:
-🌐 Network Support Team
+**Extracted Entities:**
 
-Entities:
+```json
 {
-  'customer_id': 'Not Provided',
-  'phone_number': 'Not Provided',
-  'ticket_id': 'Not Provided',
-  'date': 'Not Provided'
+  "ticket_id": "1234",
+  "phone_number": "Not Provided",
+  "date": "Not Provided"
 }
 ```
+
+**Generated Output:**
+
+* Professional telecom draft response
+* Issue routed to Network Support Team
+* Displayed directly in UI
 
 ---
 
 ## 🤖 How It Works
 
-1. User enters a telecom support message.
-2. LLM classifies urgency and intent.
-3. NER module extracts structured entities.
-4. Output is cleaned using a JSON parser.
-5. System generates a professional draft reply.
-6. Ticket is routed to the appropriate department.
+1. User submits a support message via UI.
+2. Classification chain determines urgency and intent.
+3. NER pipeline extracts structured entities.
+4. Output is validated via JSON parser.
+5. Response generation chain drafts telecom reply.
+6. Routing logic assigns correct support department.
+7. Results are rendered back to the UI.
+
+---
+
+## 📸 Demo & Screenshots
+
+(Add screenshots after UI completion)
+
+```
+/docs/screenshots/ui-home.png
+/docs/screenshots/triage-result.png
+```
 
 ---
 
 ## 🔒 Security Considerations
 
-- API keys stored using `.env`
-- `.env` excluded via `.gitignore`
-- Structured output validation prevents malformed responses
+* API keys secured via `.env`
+* `.gitignore` prevents credential exposure
+* Structured parsing reduces hallucinated outputs
+* Controlled prompt templates
 
 ---
 
-## 📈 Future Improvements (Optional)
+## 📈 Future Improvements
 
-- Multi-agent CrewAI workflow
-- Conversation memory
-- Ticket database integration
-- Web dashboard interface
-- Confidence scoring system
+* Multi-agent workflow (CrewAI)
+* Conversation memory
+* Ticket database integration
+* Deployment (Docker + Cloud)
+* Confidence scoring
+* Analytics dashboard
 
 ---
 
 ## 👨‍💻 Author
 
-**Sanidhya Yadav and Team**
-
-QA & Software Engineering Student
+**Sanidhya Yadav & Team**
+QA / SDET Aspirant | Automation & AI Testing Enthusiast
 
 ---
 
 ## 🤝 Acknowledgements
 
-This project was developed with implementation guidance and technical assistance from AI tools (ChatGPT) for learning, architecture design, and debugging support.
+Architecture design, debugging guidance, and implementation learning supported through AI-assisted development tools.
 
 ---
 
 ## 📜 License
 
-This project is developed for academic and educational purposes.
+Developed for academic and educational purposes.
