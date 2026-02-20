@@ -277,7 +277,7 @@ Intent: Network Issue
 
 **Sanidhya Yadav & Team**
 
-QA / SDET Aspirant | Automation & AI Testing Enthusiast
+QA / SDET Aspirant | Automation & Testing Enthusiast
 
 ---
 
